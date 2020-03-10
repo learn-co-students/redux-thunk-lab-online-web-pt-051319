@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
-
-class App extends Component {   
-  
+import { connect } from 'react-redux';
+ 
+class App extends Component {
+ 
   render() {
+    console.log(this.props.catPics)
     return (
-      <div>
+      <div className="App">
         <h1>CatBook</h1>
-        {/* add CatList component here */}
+        {/* missing component */}
       </div>
     );
   }
 }
-
-export default App
-
+ 
+const mapStateToProps = state => {
+  return {
+    catPics: state.cats,
+    loading: state.loading
+  }
+}
+ 
+export default connect(mapStateToProps)(App)
